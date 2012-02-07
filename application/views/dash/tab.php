@@ -1,8 +1,9 @@
-<p>
-    <?= __('We reached into the ether and grabbed ahold of the following idea:') ?>
-</p>
-<div id="word-container">
-    <div class="well">
-        <h1 id="the-word">...</h1>
-    </div>
+<h4>
+    <?= __('Your word is...') ?>
+</h4>
+
+<div class="well">
+    <h1 id="the-word">...</h1>
 </div>
+
+<?= __('Click on the button below to ask for a new word or pick a different category from the left.') ?>

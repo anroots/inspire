@@ -11,10 +11,6 @@ class Controller_Dash extends Controller_Main
 
 
     public function action_index() {
-
-        $this->title = 'Dashboard';
     }
-
-
 
 } 

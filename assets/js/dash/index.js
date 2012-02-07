@@ -12,30 +12,47 @@
 function inspire(type) {
     var word = $.i18n._('Aww! The server exploded!');
 
+    if (!type) {
+        type = '';
+    }
+
     $.ajax({
         type:'GET',
         async:false,
-        url:base_url + '',
-        data:{
-            type:type
-        },
-        success:function (json, status) {
-            console.debug(json);
-            console.debug(status);
+        url:base_url + 'ether/inspire/' + type,
+        success:function (json) {
+            if (json && json.status == 200) {
+                word = json.response;
+            }
         }
     });
     return word;
 }
 
+/**
+ * Change the current word
+ *
+ * @since 1.0
+ * @return void
+ */
+function re_inspire() {
+    $('#the-word').hide().html(inspire()).fadeIn(1000);
+}
 
 // Ready
 $(document).ready(function () {
 
-
+    // Set translation
     $.i18n.setDictionary(dictionary_eng);
 
-    $('#the-word').html(inspire());
+    // Get new word on first load
+    re_inspire();
 
+    // Btn for getting a new word
+    $('#btn-inspire').click(re_inspire);
+
+    // Tooltips on about tab
+    $('.tooltips a[rel="tooltip"]').tooltip();
 });
 
 // Translations

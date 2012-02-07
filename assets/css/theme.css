@@ -1,7 +1,7 @@
 body {
   margin-top: 4%; }
 
-#word-container {
+.fix-tab-padding {
   margin-left: 20%; }
 
 #tab-random {
@@ -9,3 +9,6 @@ body {
 
 footer {
   font-size: 80%; }
+
+#the-word {
+  text-align: center; }
