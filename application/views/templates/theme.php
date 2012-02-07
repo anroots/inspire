@@ -56,6 +56,7 @@
             <footer>
                 <?=Kohana::$config->load('app.codename')?> <?=__('version')?> <?=Kohana::$config->load('app.version')?>
                 <a href="https://github.com/anroots/inspire" title="GitHub">GitHub</a>
+                <a href="<?=URL::base()?>admin" title="Admin"><?=__('Admin')?></a>
             </footer>
         </div>
     </div>
