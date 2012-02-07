@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <link rel="stylesheet" href="<?=URL::base()?>assets/bootstrap-2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=URL::base()?>assets/bootstrap-2.0/css/bootstrap.min.responsive.css">
     <link rel="stylesheet" href="<?=URL::base()?>assets/css/theme.css">
     <?=Assets::render(Assets::CSS)?>
     <!-- end CSS-->
@@ -30,25 +31,12 @@
 
 <div class="container-fluid">
 
-    <!-- Header -->
-    <div class="row-fluid">
-        <div class="span4">
-            <header>
-                <h1>
-                    <a href="<?=URL::base()?>">
-                        <?=Kohana::$config->load('app.title')?>
-                    </a>
-                </h1>
-            </header>
-        </div>
-    </div>
-
     <!-- Main content -->
     <div class="row">
         <div class="span2">
             <!--Sidebar content-->
         </div>
-        <div class="span10 offset2">
+        <div class="span6 offset4">
             <?=Notify::render()?>
             <div id="main">
                 <?=$content?>
@@ -61,13 +49,14 @@
         <div class="span4 offset6">
             <footer>
                 <?=Kohana::$config->load('app.codename')?> <?=__('version')?> <?=Kohana::$config->load('app.version')?>
-                <a href="https://github.com/anroots/inspire" title="GitHub">Fork me on GitHub</a>
+                <a href="https://github.com/anroots/inspire" title="GitHub">GitHub</a>
             </footer>
         </div>
     </div>
 
 </div>
-
+<script src="<?=URL::base()?>assets/bootstrap-2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="<?=URL::base()?>assets/js/libs/jquery.i18n.min.js" type="text/javascript"></script>
 <?=Assets::render(Assets::SCRIPT)?>
 </body>
 </html>
