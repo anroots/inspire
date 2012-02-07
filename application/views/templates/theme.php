@@ -15,7 +15,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <link rel="stylesheet" href="<?=URL::base()?>assets/bootstrap-2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?=URL::base()?>assets/bootstrap-2.0/css/bootstrap.min.responsive.css">
     <link rel="stylesheet" href="<?=URL::base()?>assets/css/theme.css">
     <?=Assets::render(Assets::CSS)?>
     <!-- end CSS-->
@@ -42,7 +41,7 @@
 
     <!-- Main content -->
     <div class="row">
-        <div class="span6 offset4">
+        <div class="span7 offset3">
             <?=Notify::render()?>
             <div id="main">
                 <?=$content?>
