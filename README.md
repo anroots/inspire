@@ -1,7 +1,8 @@
 Inspire
 =======
 
-Inspire is a small web-app for improvisers to get inspiration from. The app has a list of categories and can generate random words suitable for scene beginnings.
+Inspire is a small web-app for improvisers _(improvisational theatre practitioners)_.
+The app has a list of word categories and can generate random words suitable for scene beginnings.
 
 Features
 --------
@@ -20,14 +21,15 @@ Change settings in _application/bootstrap.php_ and files in the _application/con
 Dependencies
 -------------
 
-* The default configuration assumes /var/www/kohana/3.2/ folder to exist, system and modules folders should be present.
+* Kohana 3.2: The default configuration assumes _/var/www/kohana/3.2/_ folder to exist, _system_ and _modules_ folders should be present.
 * Dependency: Kohana Commoneer module: https://github.com/anroots/kohana-commoneer
 
 
 Development
 ===========
 
-Created by Ando Roots for Improgrupp Jaa! (http://jaa.ee). Feel free to fork it, contributions (pull requests) and ideas are always welcome.
+Created by Ando Roots for Improgrupp Jaa! (http://jaa.ee).
+Feel free to fork it, contributions (pull requests) and ideas are always welcome.
 
 Licence
 =======

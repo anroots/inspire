@@ -19,7 +19,7 @@ function inspire(type) {
     $.ajax({
         type:'GET',
         async:false,
-        url:base_url + 'ether/inspire/' + type,
+        url:base_url + 'word/inspire/' + type,
         success:function (json) {
             if (json && json.status == 200) {
                 word = json.response;
