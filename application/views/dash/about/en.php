@@ -3,7 +3,7 @@
 <div class="tooltips">
     <blockquote>
         <p>
-            <a href="http://inspire.jaa.ee">inspire.jaa.ee</a> is an small tool for
+            <a href="http://i.jaa.ee">i.jaa.ee</a> is an small tool for
             <a href="#" rel="tooltip"
                data-original-title="People who practice improvisational comedy, a form of theatre">improvisers</a>
             to get inspiration from.

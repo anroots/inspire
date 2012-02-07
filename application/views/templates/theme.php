@@ -11,6 +11,7 @@
     <title><?=$title?></title>
     <meta name="description" content="<?=Kohana::$config->load('app.description')?>">
     <meta name="author" content="Ando Roots">
+    <link rel="shortcut icon" href="<?=URL::base()?>assets/img/favicon.png" />
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
 

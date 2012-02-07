@@ -3,7 +3,7 @@
 <div class="tooltips">
     <blockquote>
         <p>
-            <a href="http://inspire.jaa.ee">inspire.jaa.ee</a> on väike veebirakendus
+            <a href="http://i.jaa.ee">i.jaa.ee</a> on väike veebirakendus
             <a href="#" rel="tooltip"
                data-original-title="Inimesed, kes tegelevad improvisatsioonilise teatriga">improviseerijatele</a>
             ideede andmiseks.
