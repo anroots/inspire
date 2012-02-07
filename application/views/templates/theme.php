@@ -29,13 +29,19 @@
 
 <body>
 
+<div class="row">
+    <div class="span2 offset10">
+        <div class="btn-group">
+            <?=Helper_Template::lang_btn('en')?>
+            <?=Helper_Template::lang_btn('et')?>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid">
 
     <!-- Main content -->
     <div class="row">
-        <div class="span2">
-            <!--Sidebar content-->
-        </div>
         <div class="span6 offset4">
             <?=Notify::render()?>
             <div id="main">

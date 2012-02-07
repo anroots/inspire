@@ -49,10 +49,28 @@ $(document).ready(function () {
     re_inspire();
 
     // Btn for getting a new word
-    $('#btn-inspire').click(re_inspire);
+    $('#btn-inspire').click(function () {
+        $('.nav-tabs a:first').tab('show');
+        re_inspire();
+    });
 
     // Tooltips on about tab
     $('.tooltips a[rel="tooltip"]').tooltip();
+
+    // On tab switch
+    $('a[data-toggle="tab"]').on('shown', function (e) {
+        var id = $(e.target).attr('href');
+        id = id.substr(1, id.length);
+
+        if (id != 'tab-random' && id != 'tab-about') {
+            $('#modal-still-in-dev').modal('show');
+        }
+    });
+
+    // Close dev modal
+    $('#btn-close-dev-modal').click(function () {
+        $('#modal-still-in-dev').modal('hide');
+    });
 });
 
 // Translations
