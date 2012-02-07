@@ -2,8 +2,8 @@
 /**
  * App settings
  *
- * @since 1.4
- * @package Commoneer
+ * @since 1.0
+ * @package Inspire
  * @author Ando Roots 2012
  */
 return array(
@@ -11,17 +11,17 @@ return array(
 	/**
 	 * The title of the application. Think HTML <title>
 	 */
-	'title' => 'My Application',
+	'title' => 'Inspire',
 
 	/**
 	 * The description of the application. Think HTML <meta>
 	 */
-	'description' => ', fast and usable mood tracker focused on the individual.',
+	'description' => 'Idea generator for improvisers',
 
 	/**
 	 * The codename of the application
 	 */
-	'codename' => 'Mooditude',
+	'codename' => 'Inspire',
 
 	/**
 	 * Current app version
