@@ -11,7 +11,7 @@
     <title><?=$title?></title>
     <meta name="description" content="<?=Kohana::$config->load('app.description')?>">
     <meta name="author" content="Ando Roots">
-    <link rel="shortcut icon" href="<?=URL::base()?>assets/img/favicon.png" />
+    <link rel="shortcut icon" href="<?=URL::base()?>assets/img/favicon.png"/>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -32,8 +32,9 @@
 <div class="row">
     <div class="span2 offset10">
         <div class="btn-group">
-            <?=Helper_Template::lang_btn('en')?>
-            <?=Helper_Template::lang_btn('et')?>
+            <? foreach ($langs as $code): ?>
+            <?= Helper_Template::lang_btn($code) ?>
+            <? endforeach?>
         </div>
     </div>
 </div>
@@ -55,8 +56,12 @@
         <div class="span4 offset6">
             <footer>
                 <?=Kohana::$config->load('app.codename')?> <?=__('version')?> <?=Kohana::$config->load('app.version')?>
-                <a href="https://github.com/anroots/inspire" title="GitHub">GitHub</a>
+                | <a href="https://github.com/anroots/inspire" title="GitHub">GitHub</a> |
+                <? if (Auth::instance()->logged_in()): ?>
+                <a href="<?=URL::base()?>auth/logout" title="Log out"><?=__('Log out')?></a>
+                <? else: ?>
                 <a href="<?=URL::base()?>admin" title="Admin"><?=__('Admin')?></a>
+                <?endif?>
             </footer>
         </div>
     </div>

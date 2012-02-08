@@ -2,6 +2,8 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
+CREATE SCHEMA IF NOT EXISTS `projects_inspire` ;
+USE `projects_inspire` ;
 
 -- -----------------------------------------------------
 -- Table `projects_inspire`.`roles`
@@ -90,6 +92,19 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `projects_inspire`.`languages`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `projects_inspire`.`languages` ;
+
+CREATE  TABLE IF NOT EXISTS `projects_inspire`.`languages` (
+  `id` INT NOT NULL ,
+  `name` VARCHAR(32) NOT NULL ,
+  `code` VARCHAR(2) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `projects_inspire`.`words`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `projects_inspire`.`words` ;
@@ -98,13 +113,16 @@ CREATE  TABLE IF NOT EXISTS `projects_inspire`.`words` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `string` VARCHAR(255) NULL ,
   `created` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ,
-  `user_id` INT(11) UNSIGNED NOT NULL ,
+  `approver_id` INT(11) UNSIGNED NULL ,
   `category_id` TINYINT(3) UNSIGNED NOT NULL ,
+  `language_id` INT NOT NULL ,
+  `approved` TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 ,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_words_users1` (`user_id` ASC) ,
+  INDEX `fk_words_users1` (`approver_id` ASC) ,
   INDEX `fk_words_word_categories1` (`category_id` ASC) ,
+  INDEX `fk_words_languages1` (`language_id` ASC) ,
   CONSTRAINT `fk_words_users1`
-    FOREIGN KEY (`user_id` )
+    FOREIGN KEY (`approver_id` )
     REFERENCES `projects_inspire`.`users` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -112,19 +130,12 @@ CREATE  TABLE IF NOT EXISTS `projects_inspire`.`words` (
     FOREIGN KEY (`category_id` )
     REFERENCES `projects_inspire`.`word_categories` (`id` )
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_words_languages1`
+    FOREIGN KEY (`language_id` )
+    REFERENCES `projects_inspire`.`languages` (`id` )
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `projects_inspire`.`word_buffer`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `projects_inspire`.`word_buffer` ;
-
-CREATE  TABLE IF NOT EXISTS `projects_inspire`.`word_buffer` (
-  `id` INT NOT NULL ,
-  `string` VARCHAR(255) NULL ,
-  PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
 
@@ -159,5 +170,30 @@ START TRANSACTION;
 USE `projects_inspire`;
 INSERT INTO `projects_inspire`.`roles_users` (`user_id`, `role_id`) VALUES (1, 1);
 INSERT INTO `projects_inspire`.`roles_users` (`user_id`, `role_id`) VALUES (1, 2);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `projects_inspire`.`word_categories`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `projects_inspire`;
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (1, 'Random');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (2, 'Sentences');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (3, 'Locations');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (4, 'Activities');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (5, 'Nouns');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (6, 'Professions');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (7, 'Adjectives');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `projects_inspire`.`languages`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `projects_inspire`;
+INSERT INTO `projects_inspire`.`languages` (`id`, `name`, `code`) VALUES (1, 'Estonian', 'ee');
+INSERT INTO `projects_inspire`.`languages` (`id`, `name`, `code`) VALUES (2, 'English', 'en');
 
 COMMIT;

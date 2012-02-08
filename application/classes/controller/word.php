@@ -8,6 +8,13 @@
  */
 class Controller_Word extends Controller_Main
 {
+    protected $_w;
+
+    public function before()
+    {
+        $this->_w = Model::factory('word');
+        parent::before();
+    }
 
     /**
      * Get inspired
@@ -16,12 +23,24 @@ class Controller_Word extends Controller_Main
      * Returns JSON
      *
      * @since 1.0
+     * @ajax
      */
     public function action_inspire()
     {
-        $w = Model::factory('word');
-
-        $this->respond(Controller_Ajax::STATUS_OK, $w->inspire($this->id));
+        $this->respond(Controller_Ajax::STATUS_OK, $this->_w->inspire($this->id)->string);
     }
 
+    /**
+     * Add a new word
+     *
+     * @since 1.0
+     * @ajax
+     */
+    public function action_add()
+    {
+        if ($this->_w->insert($this->request->post()) !== FALSE) {
+            $this->respond(Controller_Ajax::STATUS_OK);
+        }
+        $this->respond(Controller_Ajax::STATUS_ERROR);
+    }
 } 

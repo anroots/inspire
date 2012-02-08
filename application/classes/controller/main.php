@@ -16,6 +16,11 @@ class Controller_Main extends Commoneer_Controller_Ajax
         }
 
         parent::before();
+
+        // Get all languages
+        View::set_global('langs', ORM::factory('language')
+            ->get()
+            ->as_array('id', 'code'));
     }
 
     /**
@@ -26,7 +31,8 @@ class Controller_Main extends Commoneer_Controller_Ajax
     public function action_lang()
     {
         // Store language change
-        if (in_array($this->id, Kohana::$config->load('app.langs'))) {
+        $l = ORM::factory('language', array('code' => $this->id));
+        if ($l->loaded()) {
             Session::instance()->set('lang', $this->id);
         }
 

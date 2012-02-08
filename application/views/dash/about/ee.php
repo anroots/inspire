@@ -21,4 +21,8 @@
     <p>
         Rakendus sobib iseseisvaks treeninguks, proovidesse ning kiirete vahetustega harjutusteks.
     </p>
+    
+    <p>
+        Külastajatel on võimalus <a href="<?=URL::base()?>admin">sõnade andmebaasi täiendada</a>.
+    </p>
 </div>

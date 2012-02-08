@@ -11,8 +11,7 @@ class Controller_Admin extends Controller_Main
 
     public function before()
     {
-        $this->_login_url = 'login';
-        $this->require_login();
+        $this->_login_url = 'auth';
         parent::before();
     }
 

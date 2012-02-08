@@ -9,7 +9,7 @@
         <li><a href="#tab-nouns" data-toggle="tab"><?=__('Nouns')?></a></li>
         <li><a href="#tab-professions" data-toggle="tab"><?=__('Professions')?></a></li>
         <li><a href="#tab-adjectives" data-toggle="tab"><?=__('Adjectives')?></a></li>
-        <li class="active"><a href="#tab-about" data-toggle="tab"><?=__('About')?></a></li>
+        <li class="active yellow"><a href="#tab-about" data-toggle="tab"><?=__('About')?></a></li>
     </ul>
 
     <!-- Begin tab content -->

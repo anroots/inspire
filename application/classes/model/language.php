@@ -1,10 +1,11 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
- * Login controller
+ * Language model
  *
+ * @package Inspire
  * @since 1.0
  */
-class Controller_Login extends Commoneer_Controller_Auth
+class Model_Language extends Commoneer_ORM
 {
 
 }
