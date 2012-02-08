@@ -98,12 +98,17 @@ class Model_Word extends Commoneer_ORM
      */
     public static function count_category_words($category_id, $language_id)
     {
-        return DB::select(DB::expr('COUNT(*)'))
+        $q = DB::select(DB::expr('COUNT(*)'))
             ->from('words')
-            ->where('category_id', '=', $category_id)
             ->where('language_id', '=', $language_id)
-            ->where('approved', '=', 1)
-            ->execute()
+            ->where('approved', '=', 1);
+
+        // Random category includes all words
+        if ($category_id != 1) {
+            $q->where('category_id', '=', $category_id);
+        }
+
+        return $q->execute()
             ->get('COUNT(*)');
     }
 }

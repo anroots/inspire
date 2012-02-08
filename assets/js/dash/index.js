@@ -90,6 +90,8 @@ $(document).ready(function () {
             $('.nav-tabs a[href="' + new_id + '"]').tab('show');
         }
 
+        // Ask for a new word
+        re_inspire();
     });
 
     // Close dev modal

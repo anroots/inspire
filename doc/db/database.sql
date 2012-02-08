@@ -87,7 +87,7 @@ DROP TABLE IF EXISTS `projects_inspire`.`word_categories` ;
 CREATE  TABLE IF NOT EXISTS `projects_inspire`.`word_categories` (
   `id` TINYINT(3) UNSIGNED NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(32) NULL ,
-  `icon` VARCHAR(16) NULL DEFAULT NULL ,
+  `icon` VARCHAR(32) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
