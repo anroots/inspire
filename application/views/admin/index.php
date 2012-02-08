@@ -5,9 +5,18 @@
     <ul class="nav nav-tabs">
         <li>
             <a href="#tab-add-words" data-toggle="tab">
-                <span class="icon-file"></span> <?=__('Add words')?>
+                <span class="icon-edit"></span> <?=__('Add words')?>
             </a>
         </li>
+
+        <? if (Auth::instance()->logged_in('admin')): ?>
+        <li>
+            <a href="#tab-import-words" data-toggle="tab">
+                <span class="icon-file"></span> <?=__('Import from file')?>
+            </a>
+        </li>
+        <? endif?>
+
         <li>
             <a href="#tab-stats" data-toggle="tab">
                 <span class="icon-signal"></span> <?=__('Stats')?>
@@ -21,7 +30,7 @@
         </li>
         <li>
             <a href="<?=URL::base()?>">
-               <span class="icon-chevron-left"></span> <?=__('Back')?>
+                <span class="icon-chevron-left"></span> <?=__('Back')?>
             </a>
         </li>
     </ul>
@@ -40,6 +49,12 @@
             <?=View::factory('admin/tab/stats', array(
             'languages' => $languages,
             'categories' => $categories
+        ))?>
+        </div>
+
+        <div class="tab-pane" id="tab-import-words">
+            <?=View::factory('admin/tab/import', array(
+            'files' => $files
         ))?>
         </div>
     </div>

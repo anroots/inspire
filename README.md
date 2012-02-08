@@ -10,13 +10,16 @@ Features
 * Clean and simple design and GUI
 * Generate random words with the press of a button
 * I18n support
-* Several categories
+* RESTful API
+* Unlimited word/lang categories
 * Default word database contains words suitable for improvisation
+* Visitors can submit their own words
 
 Installation
 =============
 
-Change settings in _application/bootstrap.php_ and files in the _application/config_ to your needs.
+Change settings in _application/bootstrap.php_ and files in the _application/config_ to your needs. Default user account for the admin panel
+must be created manually in PMA. Generate the password (after setting your auth key) by calling echo Auth::instance()->hash('MYPASS'); in one of the controllers.
 
 Dependencies
 -------------

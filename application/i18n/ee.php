@@ -35,6 +35,12 @@ return array(
     'Add words' => 'Sõnade lisamine',
     'Admin' => 'Haldusliides',
     'Back' => 'Tagasi',
+    'Import from file' => 'Impordi tekstifailist',
+    'Stats' => 'Statistika',
+
+    'Import selected file' => 'Impordi valitud faili sisu',
+    'Category' => 'Kategooria',
+    'Select file...' => 'Valige fail...',
 
     'Current word' => 'Uus sõna',
     'Word category' => 'Sõna kategooria',

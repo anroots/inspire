@@ -111,4 +111,46 @@ class Model_Word extends Commoneer_ORM
         return $q->execute()
             ->get('COUNT(*)');
     }
+
+    /**
+     * Import lines from $filename to the word database
+     *
+     * @since 1.1
+     * @param string $filename
+     * @param int $category_id
+     * @return bool
+     */
+    public function import($filename, $category_id)
+    {
+        // Full path to the txt file
+        $file = DOCROOT . 'import/' . $filename;
+
+        // Sanity/security check
+        if (empty($filename) || strstr($filename, '..') || !file_exists($file)) {
+            return FALSE;
+        }
+
+        // Open file for reading
+        $f = fopen($file, 'r');
+
+        // Read line by line
+        while (!feof($f)) {
+            $line = trim(fgets($f));
+
+            // Try loading the word from the database
+            $word = ORM::factory('word', array('string' => $line));
+
+            // Word already exists
+            if ($word->loaded()) {
+                continue;
+            }
+
+            // Insert new word
+            if ($word->insert(array('category_id' => $category_id, 'string' => $line)) === FALSE) {
+                Notify::msg('Some of the words were not imported.');
+                return FALSE;
+            }
+        }
+        return TRUE;
+    }
 }

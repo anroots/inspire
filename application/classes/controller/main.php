@@ -24,6 +24,16 @@ class Controller_Main extends Commoneer_Controller_Ajax
     }
 
     /**
+     * Redirect to dashboard
+     *
+     * @since 1.0
+     */
+    public function action_index()
+    {
+        $this->request->redirect('dash');
+    }
+
+    /**
      * Switch language
      *
      * @since 1.0

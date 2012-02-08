@@ -1,0 +1,10 @@
+dog
+cat
+rabbit
+skyscraper
+pear
+apple
+stool
+school
+chicken
+rabbit
