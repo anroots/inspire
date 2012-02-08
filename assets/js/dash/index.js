@@ -30,6 +30,9 @@ function inspire(category) {
         type:'GET',
         async:false,
         url:base_url + 'word/inspire/' + category,
+        data:{
+            use_dictionary:$('#use-dictionary').is(':checked') ? 1 : 0
+        },
         success:function (json) {
             if (json && json.status == 200) {
                 word = json.response;
@@ -46,7 +49,14 @@ function inspire(category) {
  * @return void
  */
 function re_inspire() {
-    $('#the-word').hide().html(inspire(category_id)).fadeIn(1000);
+    // Replace word box with loading bar
+    $('#the-word').hide().html('...').fadeIn(100);
+
+    // Fetch the word
+    var word = inspire(category_id);
+
+    // Display the word
+    $('#the-word').hide().html(word).fadeIn(1000);
 }
 
 // Ready
@@ -90,12 +100,9 @@ $(document).ready(function () {
             $('.nav-tabs a[href="' + new_id + '"]').tab('show');
         }
 
+
         // Ask for a new word
         re_inspire();
     });
 
-    // Close dev modal
-    $('#btn-close-dev-modal').click(function () {
-        $('#modal-still-in-dev').modal('hide');
-    });
 });

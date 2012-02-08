@@ -61,6 +61,46 @@ class Model_Word extends Commoneer_ORM
     }
 
     /**
+     * Gets a single, random line from a dictionary file
+     *
+     * The dictionary contains a list of words and is huge
+     *
+     * @since 1.1
+     * @return string A pseudo-random line from the dictionary file
+     */
+    public function from_dict()
+    {
+        // Currently, only EST dict file
+        $dict_file = APPPATH . 'vendor/ee/lemmad.txt';
+
+        // Open file for reading
+        $f = fopen($dict_file, 'r');
+
+        // Determine, which line will be the 'random' line
+        $line_number = rand(1, 104200);
+
+        // Read line by line. This should be optimized, Immensely.
+        // How would one do that, ideas?
+        // Todo
+        $i = 0; // Current line
+        while (!feof($f)) {
+            $line = fgets($f);
+
+            // We are on the 'random' line, return it
+            if ($i === $line_number) {
+
+                // Empty lines?
+                if (empty($line)) {
+                    return $this->from_dict();
+                }
+
+                return trim($line);
+            }
+            $i++;
+        }
+    }
+
+    /**
      * Get a random word
      *
      * @since 1.0

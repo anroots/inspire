@@ -1,5 +1,5 @@
 <h4>
-    <?= __('Your word is...') ?>
+    <?= __('Your inspiration is...') ?>
 </h4>
 
 <div class="well">

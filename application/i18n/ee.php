@@ -18,12 +18,13 @@ return array(
     'About' => 'Info',
 
     // Nav buttons
-    'Previous Category' => 'Järgmine Kategooria',
     'Re-inspire me!' => 'UUS SÕNA',
-    'Next Category' => 'Järgmine Kategooria',
+    'Options' => 'Seadistus',
+    'Use words from the Estonian dictionary' => 'Kasuta sõnu ÕS-ist',
+    'Check this if you want random words from the Estonian dictionary' => 'Märgista see kast, et saada suvalisi sõnu õigekeelsussõnaraamatust.',
 
     // Tab content
-    'Your word is...' => 'Sinu sõnaks on...',
+    'Your inspiration is...' => 'Sinu inspiratsiooniks on...',
     'Click on the button below to ask for a new word or pick a different category from the left.' => 'Vajuta allpool asuval nupul uue sõna küsimiseks või vali vasakult uus kategooria.',
 
     // Admin page

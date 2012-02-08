@@ -6,7 +6,7 @@
             <a href="http://i.jaa.ee">i.jaa.ee</a> on väike veebirakendus
             <a href="#" rel="tooltip"
                data-original-title="Inimesed, kes tegelevad improvisatsioonilise teatriga">improviseerijatele</a>
-            ideede andmiseks.
+            ideede genereerimiseks.
         </p>
         <small>
             Rakenduse valmistas <a href="http://jaa.ee">Improgrupp Jaa!</a>

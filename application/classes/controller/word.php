@@ -19,7 +19,7 @@ class Controller_Word extends Controller_Main
     /**
      * Get inspired
      *
-     * Param ID is word category
+     * Param ID is word category, accepts optional GET use_dictionary param
      * Returns JSON
      *
      * @since 1.0
@@ -27,7 +27,17 @@ class Controller_Word extends Controller_Main
      */
     public function action_inspire()
     {
-        $this->respond(Controller_Ajax::STATUS_OK, $this->_w->inspire($this->id)->string);
+        // Take random word from the dictionary?
+        $dict = (bool)$this->request->query('use_dictionary');
+
+        if ($dict) { // Read dictionary file
+            $data = $this->_w->from_dict();
+        } else { // Ask the database
+            $data = $this->_w->inspire($this->id)->string;
+        }
+
+        // Respond with a random word
+        $this->respond(Controller_Ajax::STATUS_OK, trim($data));
     }
 
     /**
