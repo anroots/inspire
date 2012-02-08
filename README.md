@@ -9,11 +9,13 @@ Features
 
 * Clean and simple design and GUI
 * Generate random words with the press of a button
+* Uses internal database and dictionary file(s)
 * I18n support
 * RESTful API
 * Unlimited word/lang categories
 * Default word database contains words suitable for improvisation
 * Visitors can submit their own words
+* Bulk file adding from .txt files
 
 Installation
 =============
