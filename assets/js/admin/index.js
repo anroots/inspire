@@ -18,7 +18,8 @@ $(document).ready(function () {
             category_id:$('#select-category-id').val()
         }, function (json) {
             if (json && json.status == 200) {
-                $('#txt-new-word').val('');
+                $('#txt-new-word').val('').focus();
+
             } else {
                 alert('The server exploded!');
             }

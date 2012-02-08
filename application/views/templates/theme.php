@@ -60,7 +60,7 @@
                 <? if (Auth::instance()->logged_in()): ?>
                 <a href="<?=URL::base()?>auth/logout" title="Log out"><?=__('Log out')?></a>
                 <? else: ?>
-                <a href="<?=URL::base()?>admin" title="Admin"><?=__('Admin')?></a>
+                <a href="<?=URL::base()?>auth" title="Admin"><?=__('Admin')?></a>
                 <?endif?>
             </footer>
         </div>

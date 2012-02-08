@@ -43,7 +43,7 @@ class Model_Word extends Commoneer_ORM
         $this->values($data, array('string', 'category_id', 'language_id'));
 
         // When admin adds a row, the word is automatically approved
-        if (Auth::instance()->logged_in(2)) {
+        if (Auth::instance()->logged_in('admin')) {
             $this->approved = 1;
             $user = Auth::instance()->get_user();
             $this->approver_id = $user->id;
@@ -74,8 +74,9 @@ class Model_Word extends Commoneer_ORM
         }
 
         $q = $this->select()
-            ->order_by('rand()')
-            ->where('approved', '=', '1');
+            ->order_by(DB::expr('rand()'))
+            ->where('approved', '=', '1')
+            ->where('language_id', '=', ORM::factory('language', array('code' => I18n::lang())));
 
         if ($type !== NULL) {
             $q->where('type_id', '=', (int)$type);
