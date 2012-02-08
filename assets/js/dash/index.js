@@ -3,23 +3,33 @@
  */
 
 /**
+ * Current category id
+ *
+ * This is changed when category tabs are opened/closed
+ * and is passed to the API
+ *
+ * @since 1.0
+ */
+var category_id = 1;
+
+/**
  * Returns a new inspiration of type _type_
  *
  * @since 1.0
- * @param string type One of the defined types (sentence, location etc)
+ * @param int category One of the defined category IDs
  * @return string Inspiration word
  */
-function inspire(type) {
+function inspire(category) {
     var word = $.i18n._('Aww! The server exploded!');
 
-    if (!type) {
-        type = '';
+    if (!category) {
+        category = '';
     }
 
     $.ajax({
         type:'GET',
         async:false,
-        url:base_url + 'word/inspire/' + type,
+        url:base_url + 'word/inspire/' + category,
         success:function (json) {
             if (json && json.status == 200) {
                 word = json.response;
@@ -36,21 +46,22 @@ function inspire(type) {
  * @return void
  */
 function re_inspire() {
-    $('#the-word').hide().html(inspire()).fadeIn(1000);
+    $('#the-word').hide().html(inspire(category_id)).fadeIn(1000);
 }
 
 // Ready
 $(document).ready(function () {
-
-    // Set translation
-    $.i18n.setDictionary(dictionary_eng);
 
     // Get new word on first load
     re_inspire();
 
     // Btn for getting a new word
     $('#btn-inspire').click(function () {
-        $('.nav-tabs a:first').tab('show');
+
+        // About tab active, switch to first category
+        if ($('.yellow.active').length) {
+            $('.nav-tabs a[href="#tab-1"]').tab('show');
+        }
         re_inspire();
     });
 
@@ -59,12 +70,26 @@ $(document).ready(function () {
 
     // On tab switch
     $('a[data-toggle="tab"]').on('shown', function (e) {
-        var id = $(e.target).attr('href');
-        id = id.substr(1, id.length);
 
-        if (id != 'tab-random' && id != 'tab-about') {
-            $('#modal-still-in-dev').modal('show');
+        // Split the DOM tab ID
+        var id = $(e.target).attr('href');
+        id = id.substr(1, id.length).split('-');
+        id = id[1];
+
+        // Save category change (to be posted to the API)
+        category_id = id;
+
+
+        // Workaround to show nonexisting tab container
+
+        var new_id = $(e.target).attr('href'); // The ID of the new tab
+
+        // If tab is about (the start) and next tab is not tab-1, load tab-1 content and switch to the new tab
+        if ($(e.relatedTarget).attr('href') == '#tab-about' && $(e.target).attr('href') != '#tab-1') {
+            $('.nav-tabs a[href="#tab-1"]').tab('show');
+            $('.nav-tabs a[href="' + new_id + '"]').tab('show');
         }
+
     });
 
     // Close dev modal
@@ -72,8 +97,3 @@ $(document).ready(function () {
         $('#modal-still-in-dev').modal('hide');
     });
 });
-
-// Translations
-var dictionary_eng = {
-    'Aww! The server exploded!':'Aww! The server exploded!'
-}

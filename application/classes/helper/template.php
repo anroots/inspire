@@ -7,9 +7,10 @@
  */
 class Helper_Template
 {
+
     public static function lang_btn($lang)
     {
-        return HTML::anchor(Request::current()->controller() . '/lang/' . $lang, strtoupper($lang), array(
+        return HTML::anchor(Request::current()->controller() . '/lang/' . $lang, '<span class="icon-flag"></span>' . strtoupper($lang), array(
             'class' => 'btn' . (I18n::lang() == $lang ? ' btn-primary' : NULL)
         ));
     }
@@ -27,6 +28,7 @@ class Helper_Template
     {
         // Get all categories
         $c = ORM::factory('word_category')
+            ->where('id', '!=', 1) // Not random
             ->get()
             ->as_array('id', 'name');
 

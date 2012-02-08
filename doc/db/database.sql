@@ -87,6 +87,7 @@ DROP TABLE IF EXISTS `projects_inspire`.`word_categories` ;
 CREATE  TABLE IF NOT EXISTS `projects_inspire`.`word_categories` (
   `id` TINYINT(3) UNSIGNED NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(32) NULL ,
+  `icon` VARCHAR(16) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -111,11 +112,11 @@ DROP TABLE IF EXISTS `projects_inspire`.`words` ;
 
 CREATE  TABLE IF NOT EXISTS `projects_inspire`.`words` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `string` VARCHAR(255) NULL ,
-  `created` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ,
-  `approver_id` INT(11) UNSIGNED NULL ,
-  `category_id` TINYINT(3) UNSIGNED NOT NULL ,
-  `language_id` INT NOT NULL ,
+  `string` VARCHAR(255) NOT NULL ,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  `approver_id` INT(11) UNSIGNED NULL DEFAULT NULL ,
+  `category_id` TINYINT(3) UNSIGNED NOT NULL DEFAULT 1 ,
+  `language_id` INT NOT NULL DEFAULT 1 ,
   `approved` TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_words_users1` (`approver_id` ASC) ,
@@ -178,13 +179,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `projects_inspire`;
-INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (1, 'Random');
-INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (2, 'Sentences');
-INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (3, 'Locations');
-INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (4, 'Activities');
-INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (5, 'Nouns');
-INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (6, 'Professions');
-INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`) VALUES (7, 'Adjectives');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`, `icon`) VALUES (1, 'Random', 'icon-refresh');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`, `icon`) VALUES (2, 'Sentences', 'icon-align-left');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`, `icon`) VALUES (3, 'Locations', 'icon-road');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`, `icon`) VALUES (4, 'Activities', 'icon-shopping-cart');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`, `icon`) VALUES (5, 'Nouns', 'icon-user');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`, `icon`) VALUES (6, 'Professions', 'icon-facetime-video');
+INSERT INTO `projects_inspire`.`word_categories` (`id`, `name`, `icon`) VALUES (7, 'Adjectives', 'icon-fire');
 
 COMMIT;
 

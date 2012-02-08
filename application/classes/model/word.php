@@ -78,10 +78,32 @@ class Model_Word extends Commoneer_ORM
             ->where('approved', '=', '1')
             ->where('language_id', '=', ORM::factory('language', array('code' => I18n::lang())));
 
-        if ($type !== NULL) {
-            $q->where('type_id', '=', (int)$type);
+        // Type set and not random
+        if ($type !== NULL && $type != 1) {
+            $q->where('category_id', '=', (int)$type);
         }
 
         return $q->find();
+    }
+
+
+    /**
+     * Count words in a specific category (and lang)
+     *
+     * @since 1.0
+     * @static
+     * @param int $category_id
+     * @param int $language_id
+     * @return int Word count
+     */
+    public static function count_category_words($category_id, $language_id)
+    {
+        return DB::select(DB::expr('COUNT(*)'))
+            ->from('words')
+            ->where('category_id', '=', $category_id)
+            ->where('language_id', '=', $language_id)
+            ->where('approved', '=', 1)
+            ->execute()
+            ->get('COUNT(*)');
     }
 }

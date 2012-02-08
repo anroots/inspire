@@ -9,8 +9,15 @@
 class Controller_Dash extends Controller_Main
 {
 
-
-    public function action_index() {
+    /**
+     * Main dashboard view
+     *
+     * @since 1.0
+     */
+    public function action_index()
+    {
+        $this->content->categories = ORM::factory('word_category')
+            ->get();
     }
 
 } 

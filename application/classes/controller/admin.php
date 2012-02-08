@@ -17,6 +17,11 @@ class Controller_Admin extends Controller_Main
 
     public function action_index()
     {
+        $this->content->languages = ORM::factory('language')
+            ->get();
+
+        $this->content->categories = ORM::factory('word_category')
+            ->get();
     }
 
 } 

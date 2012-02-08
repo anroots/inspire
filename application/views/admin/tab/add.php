@@ -14,5 +14,5 @@
 <div class="clearfix"></div>
 
 <p class="help-block">
-    <?=__('Add new words to the database here. Added words have to be approved.')?>
+    <?=__('Add new words to the database here. Added words have to be approved. The word will be added to the current language words database.')?>
 </p>

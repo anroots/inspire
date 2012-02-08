@@ -3,9 +3,27 @@
 <div class="tabbable tabs-left">
     <!-- Begin tab headers -->
     <ul class="nav nav-tabs">
-        <li><a href="#tab-add-words" data-toggle="tab"><?=__('Add words')?></a></li>
+        <li>
+            <a href="#tab-add-words" data-toggle="tab">
+                <span class="icon-file"></span> <?=__('Add words')?>
+            </a>
+        </li>
+        <li>
+            <a href="#tab-stats" data-toggle="tab">
+                <span class="icon-signal"></span> <?=__('Stats')?>
+            </a>
+        </li>
 
-        <li class="active yellow"><a href="#tab-about" data-toggle="tab"><?=__('Admin')?></a></li>
+        <li class="active yellow">
+            <a href="#tab-about" data-toggle="tab">
+                <span class="icon-lock"></span> <?=__('Admin')?>
+            </a>
+        </li>
+        <li>
+            <a href="<?=URL::base()?>">
+               <span class="icon-chevron-left"></span> <?=__('Back')?>
+            </a>
+        </li>
     </ul>
 
     <!-- Begin tab content -->
@@ -18,5 +36,11 @@
             <?=View::factory('admin/tab/add')?>
         </div>
 
+        <div class="tab-pane" id="tab-stats">
+            <?=View::factory('admin/tab/stats', array(
+            'languages' => $languages,
+            'categories' => $categories
+        ))?>
+        </div>
     </div>
 </div>

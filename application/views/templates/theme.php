@@ -24,6 +24,7 @@
     <script src="<?=URL::base()?>assets/js/libs/jquery-1.7.1.min.js"></script>
     <script type="text/javascript">
         var base_url = '<?=URL::base()?>';
+        var current_lang = '<?=I18n::lang()?>';
     </script>
 </head>
 
@@ -69,6 +70,7 @@
 </div>
 <script src="<?=URL::base()?>assets/bootstrap-2.0/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<?=URL::base()?>assets/js/libs/jquery.i18n.min.js" type="text/javascript"></script>
+<script src="<?=URL::base()?>assets/js/i18n.js" type="text/javascript"></script>
 <?=Assets::render(Assets::SCRIPT)?>
 </body>
 </html>
