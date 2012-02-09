@@ -30,6 +30,10 @@
 
 <body>
 
+<a href="http://jaa.ee" title="Improgrupp Jaa!">
+    <img src="<?=URL::base()?>assets/img/jaa_logo.png" alt="Jaa! logo" width="150" height="113"/>
+</a>
+
 <div class="row">
     <div class="span2 offset10">
         <div class="btn-group">
@@ -58,6 +62,10 @@
             <footer>
                 <?=Kohana::$config->load('app.codename')?> <?=__('version')?> <?=Kohana::$config->load('app.version')?>
                 | <a href="https://github.com/anroots/inspire" title="GitHub">GitHub</a> |
+                <a href="https://github.com/anroots/inspire/wiki/API-documentation"
+                   title="<?=__('API documentation for developers')?>">
+                    <?=__('API')?>
+                </a> |
                 <? if (Auth::instance()->logged_in()): ?>
                 <a href="<?=URL::base()?>auth/logout" title="Log out"><?=__('Log out')?></a>
                 <? else: ?>

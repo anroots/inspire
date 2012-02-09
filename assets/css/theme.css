@@ -1,6 +1,11 @@
 body {
   margin-top: 4%; }
 
+img[src$="logo.png"] {
+  position: absolute;
+  right: 0;
+  top: 0; }
+
 .fix-tab-padding {
   margin-left: 130px; }
 
