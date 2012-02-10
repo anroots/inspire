@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <link rel="stylesheet" href="<?=URL::base()?>assets/bootstrap-2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=URL::base()?>assets/bootstrap-2.0/css/bootstrap.min.responsive.css">
     <link rel="stylesheet" href="<?=URL::base()?>assets/css/theme.css">
     <?=Assets::render(Assets::CSS)?>
     <!-- end CSS-->
@@ -29,10 +30,11 @@
 </head>
 
 <body>
-
-<a href="http://jaa.ee" title="Improgrupp Jaa!">
-    <img src="<?=URL::base()?>assets/img/jaa_logo.png" alt="Jaa! logo" width="150" height="113"/>
-</a>
+<div class="row">
+    <a href="http://jaa.ee" title="Improgrupp Jaa!">
+        <img src="<?=URL::base()?>assets/img/jaa_logo.png" alt="Jaa! logo" width="150" height="113"/>
+    </a>
+</div>
 
 <div class="row">
     <div class="span2 offset10">

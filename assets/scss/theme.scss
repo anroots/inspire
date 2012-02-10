@@ -39,3 +39,17 @@ footer {
 .justify {
 	text-align: justify;
 }
+
+
+// Let's be responsive!
+@media (max-width: 768px) {
+	img[src$="logo.png"] {
+		display:none;
+	}
+}
+
+@media (max-width: 480px) {
+	#the-word {
+		word-wrap: break-word;
+	}
+}
