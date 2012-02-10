@@ -36,8 +36,8 @@ class Controller_Word extends Controller_Main
             $data = $this->_w->inspire($this->id)->string;
         }
 
-        // Respond with a random word
-        $this->respond(Controller_Ajax::STATUS_OK, trim($data));
+        // Respond with a random word (utf8 encoded)
+        $this->respond(Controller_Ajax::STATUS_OK, utf8_encode(trim($data)));
     }
 
     /**

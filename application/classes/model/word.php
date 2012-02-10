@@ -89,7 +89,7 @@ class Model_Word extends Commoneer_ORM
             // We are on the 'random' line, return it
             if ($i === $line_number) {
 
-                return quoted_printable_encode(trim($line));
+                return trim($line);
             }
             $i++;
         }

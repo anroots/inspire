@@ -39,7 +39,9 @@ function inspire(category) {
             }
         }
     });
-    return word;
+
+    // The word is UTF8-encoded
+    return decodeURIComponent(word);
 }
 
 /**
