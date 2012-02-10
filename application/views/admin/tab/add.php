@@ -13,6 +13,6 @@
 <button class="btn btn-primary btn-large" id="btn-add-word"><?=__('Add word')?></button>
 <div class="clearfix"></div>
 
-<p class="help-block">
+<p class="help-block justify">
     <?=__('Add new words to the database here. Added words have to be approved. The word will be added to the current language words database.')?>
 </p>

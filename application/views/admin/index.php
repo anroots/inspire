@@ -36,7 +36,7 @@
     </ul>
 
     <!-- Begin tab content -->
-    <div class="tab-content fix-tab-padding">
+    <div class="tab-content">
         <div class="tab-pane active" id="tab-about">
             <?=View::factory('admin/tab/about')?>
         </div>

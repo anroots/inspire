@@ -13,21 +13,21 @@ Features
 * I18n support
 * RESTful API
 * Unlimited word/lang categories
-* Default word database contains words suitable for improvisation
 * Visitors can submit their own words
 * Bulk file adding from .txt files
 
 Installation
 =============
 
-Change settings in _application/bootstrap.php_ and files in the _application/config_ to your needs. Default user account for the admin panel
-must be created manually in PMA. Generate the password (after setting your auth key) by calling echo Auth::instance()->hash('MYPASS'); in one of the controllers.
+Change settings in _application/bootstrap.php_ and files in the _application/config_ to your needs.
+Default user account for the admin panel must be created manually in PMA.
+Generate the password (after setting your auth key) by calling echo Auth::instance()->hash('MYPASS'); in one of the controllers.
 
 Dependencies
 -------------
 
-* Kohana 3.2: The default configuration assumes _/var/www/kohana/3.2/_ folder to exist, _system_ and _modules_ folders should be present.
-* Dependency: Kohana Commoneer module: https://github.com/anroots/kohana-commoneer
+* Kohana 3.2: The default configuration assumes _/var/www/kohana/3.2/_ folder to exist, _system_ and _modules_ folders should be present. You can set your Kohana location in _index.php_.
+* Dependency: Kohana Commoneer v1.4 module: https://github.com/anroots/kohana-commoneer
 
 
 Development

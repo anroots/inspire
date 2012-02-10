@@ -34,10 +34,15 @@ return array(
     New words have to be approved by an administrator.
     Open the <em>Add words</em> tab for more info.' => 'Selle haldusliidese abil saab sõnade andmebaasi täiendada. Uued sõnad peab administraator heaks kiitma. Sõnade lisamiseks vaata <em>Sõnade lisamine</em> vahekaarti.',
     'Add words' => 'Sõnade lisamine',
+    'Enter your word here' => 'Sisesta sõna siia kasti',
     'Admin' => 'Haldusliides',
     'Back' => 'Tagasi',
     'Import from file' => 'Impordi tekstifailist',
     'Stats' => 'Statistika',
+    'This page shows statistics about words in the database.' => 'Siin lehel on statistika andmebaasis olevate sõnade kohta',
+    'Language: :lang' => 'Keel: :lang',
+
+
 
     'Import selected file' => 'Impordi valitud faili sisu',
     'Category' => 'Kategooria',

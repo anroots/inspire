@@ -8,10 +8,6 @@ img[src$="logo.png"] {
 	top: 0;
 }
 
-.fix-tab-padding {
-	margin-left: 130px; // .well overlaps tabs
-}
-
 #tab-random {
 	padding-top: 4%;
 }
@@ -38,4 +34,8 @@ footer {
 			}
 		}
 	}
+}
+
+.justify {
+	text-align: justify;
 }

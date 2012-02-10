@@ -1,25 +1,18 @@
-<p>
-    <?=__('You can populate the words database by parsing a text file.')?>
-</p>
+<div class="justify">
+    <p>
+        <?=__('You can populate the words database by parsing a text file.')?>
+    </p>
 
-<p>
-    <?=__('Every row in the file is treated as a single entry.
-    Please choose a textfile and word category where you\'d like to insert <strong>all the words</strong> from that textfile.
-    Double entries - words that already exist in the same category - will be ignored.
-    Words will be inserted to the current language <em>(:lang)</em>.', array(
-    ':lang' => I18n::lang()
-))?>
-</p>
-
-<p>
-    <?=__('The following is a list of all <em>.txt</em> files found in <em>:dir</em> directory.', array(
-    ':dir' => DOCROOT . 'import/'
-))?>
-</p>
+    <p>
+        <?=__('The following is a list of all <em>.txt</em> files found in <em>:dir</em> directory.', array(
+        ':dir' => DOCROOT . 'import/'
+    ))?>
+    </p>
+</div>
 
 <? if (!empty($files)): ?>
 
-<form action="<?=URL::base()?>admin/import" method="post">
+<form action="<?=URL::base()?>admin/import" class="offset3" method="post">
     <label><?=__('Select file...')?></label>
 
     <div class="controls">
@@ -45,3 +38,12 @@
 </div>
 
 <?endif ?>
+
+<p class="help-block justify">
+    <?=__('Every row in the file is treated as a single entry.
+    Please choose a textfile and word category where you\'d like to insert <strong>all the words</strong> from that textfile.
+    Double entries - words that already exist in the same category - will be ignored.
+    Words will be inserted to the current language <em>(:lang)</em>.', array(
+    ':lang' => I18n::lang()
+))?>
+</p>

@@ -17,7 +17,7 @@ class Controller_Word extends Controller_Main
     }
 
     /**
-     * Get inspired
+     * Get inspired (return a random word)
      *
      * Param ID is word category, accepts optional GET use_dictionary param
      * Returns JSON

@@ -1,9 +1,13 @@
-
+<p>
+    <?=__('This page shows statistics about words in the database.')?>
+</p>
 <table class="table-condensed span3">
     <tbody>
     <? foreach ($languages as $lang): ?>
     <tr>
-        <th colspan="2"><?= __($lang->name) ?></th>
+        <th colspan="2"><?= __('Language: :lang', array(
+            ':lang' => $lang->name
+        )) ?></th>
     </tr>
         <? foreach ($categories as $category): ?>
         <tr>

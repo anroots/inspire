@@ -6,9 +6,6 @@ img[src$="logo.png"] {
   right: 0;
   top: 0; }
 
-.fix-tab-padding {
-  margin-left: 130px; }
-
 #tab-random {
   padding-top: 4%; }
 
@@ -23,3 +20,6 @@ footer {
 
 .tabbable .nav .yellow a, .tabbable .nav .yellow a:visited {
   background-color: #f9f1ca; }
+
+.justify {
+  text-align: justify; }

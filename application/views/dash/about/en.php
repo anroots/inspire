@@ -1,7 +1,7 @@
 <h1>About <?=Kohana::$config->load('app.title')?></h1>
 
 <div class="tooltips">
-    <blockquote>
+    <blockquote class="offset2">
         <p>
             <a href="http://i.jaa.ee">i.jaa.ee</a> is an small tool for
             <a href="#" rel="tooltip"
@@ -14,7 +14,7 @@
         </small>
     </blockquote>
 
-    <p>
+    <p class="justify">
         It's easy for improvisers to make stuff up, but often, the <a href="#" rel="tooltip"
                                                                       data-original-title="A quote from our favourite Time Lord">timey
         wimey stuff</a> keeps repeating.

@@ -2,8 +2,10 @@
     <?= __('Your inspiration is...') ?>
 </h4>
 
-<div class="well">
+<div class="well offset2">
     <h1 id="the-word">...</h1>
 </div>
 
-<?= __('Click on the button below to ask for a new word or pick a different category from the left.') ?>
+<p class="help-block">
+    <?= __('Click on the button below to ask for a new word or pick a different category from the left.') ?>
+</p>

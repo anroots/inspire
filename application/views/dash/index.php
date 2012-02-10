@@ -17,7 +17,7 @@
     </ul>
 
     <!-- Begin tab content -->
-    <div class="tab-content fix-tab-padding">
+    <div class="tab-content">
         <div class="tab-pane" id="tab-1">
             <?=View::factory('dash/tab')?>
         </div>

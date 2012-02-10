@@ -89,12 +89,7 @@ class Model_Word extends Commoneer_ORM
             // We are on the 'random' line, return it
             if ($i === $line_number) {
 
-                // Empty lines?
-                if (empty($line)) {
-                    return $this->from_dict();
-                }
-
-                return trim($line);
+                return quoted_printable_encode(trim($line));
             }
             $i++;
         }
