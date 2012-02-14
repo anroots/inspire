@@ -8,6 +8,11 @@
 class Model_Word extends Commoneer_ORM
 {
 
+    /**
+     * The directory that contains dictionaries, relative to APPPATH
+     */
+    const DICT_DIR = 'vendor/';
+
     public function rules()
     {
         return array(
@@ -70,8 +75,12 @@ class Model_Word extends Commoneer_ORM
      */
     public function from_dict()
     {
-        // Currently, only EST dict file
-        $dict_file = APPPATH . 'vendor/ee/lemmad.txt';
+        // Read the dict file
+        // Path example: APPPATH/vendor/ee/dict.txt
+        $dict_file = APPPATH . Model_Word::DICT_DIR . I18n::lang() . '/dict.txt';
+        if (!file_exists($dict_file)) {
+            throw new Kohana_Exception("Dictionary file ':dict' does not exist", array(':dict' => $dict_file));
+        }
 
         // Open file for reading
         $f = fopen($dict_file, 'r');
@@ -88,7 +97,6 @@ class Model_Word extends Commoneer_ORM
 
             // We are on the 'random' line, return it
             if ($i === $line_number) {
-
                 return trim($line);
             }
             $i++;
