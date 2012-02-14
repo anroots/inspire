@@ -53,5 +53,8 @@ return array(
     'Add word' => 'Lisa sõna',
     'Add new words to the database here. Added words have to be approved. The word will be added to the current language words database.' => 'Selle vormi abil saab sõnade andmebaasi uusi kirjeid tekitada. Lisatud sõnad peab administraator heaks kiitma. Sõna lisatakse hetkel valitud keele alla.',
 
-    'version' => 'versioon'
+    'version' => 'versioon',
+    'Normal view' => 'Tavavaade',
+    'Minimal' => 'Minimaalne',
+    'Minimal view for light clients' => 'Lihtsustatud vaade'
 );

@@ -64,6 +64,11 @@ function re_inspire() {
 // Ready
 $(document).ready(function () {
 
+    // Redirect to the minimal view if the browser doesn't support AJAX
+    if (!jQuery.support.ajax) {
+        window.location.href = base_url + 'dash/minimal';
+    }
+
     // Get new word on first load
     re_inspire();
 

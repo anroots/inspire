@@ -30,11 +30,6 @@
 </head>
 
 <body>
-<div class="row">
-    <a href="http://jaa.ee" title="Improgrupp Jaa!">
-        <img src="<?=URL::base()?>assets/img/jaa_logo.png" alt="Jaa! logo" width="150" height="113"/>
-    </a>
-</div>
 
 <div class="row">
     <div class="span2 offset10">
@@ -63,26 +58,13 @@
         <div class="span4 offset6">
             <footer>
                 <?=Kohana::$config->load('app.codename')?> <?=__('version')?> <?=Kohana::$config->load('app.version')?>
-                | <a href="https://github.com/anroots/inspire" title="GitHub">GitHub</a> |
-                <a href="https://github.com/anroots/inspire/wiki/API-documentation"
-                   title="<?=__('API documentation for developers')?>">
-                    <?=__('API')?>
-                </a> |
-                <a href="<?=URL::base()?>dash/minimal"
-                   title="<?=__('Minimal view for light clients')?>">
-                    <?=__('Minimal')?>
-                </a> |
-                <? if (Auth::instance()->logged_in()): ?>
-                <a href="<?=URL::base()?>auth/logout" title="Log out"><?=__('Log out')?></a>
-                <? else: ?>
-                <a href="<?=URL::base()?>auth" title="Admin"><?=__('Admin')?></a>
-                <?endif?>
+                | <a href="<?=URL::base()?>"><?=__('Normal view')?></a>
             </footer>
         </div>
     </div>
 
 </div>
-<script src="<?=URL::base()?>assets/bootstrap-2.0/js/bootstrap.min.js" type="text/javascript"></script>
+
 <script src="<?=URL::base()?>assets/js/libs/jquery.i18n.min.js" type="text/javascript"></script>
 <script src="<?=URL::base()?>assets/js/i18n.js" type="text/javascript"></script>
 <?=Assets::render(Assets::SCRIPT)?>
