@@ -20,8 +20,8 @@ return array(
     // Nav buttons
     'Re-inspire me!' => 'UUS SÕNA',
     'Options' => 'Seadistus',
-    'Use words from the Estonian dictionary' => 'Kasuta sõnu ÕS-ist',
-    'Check this if you want random words from the Estonian dictionary' => 'Märgista see kast, et saada suvalisi sõnu õigekeelsussõnaraamatust.',
+    'Use words from the <em>:lang</em> dictionary' => 'Kasuta sõnu ÕS-ist',
+    'Check this if you want random words from the :lang dictionary' => 'Märgista see kast, et saada suvalisi sõnu õigekeelsussõnaraamatust.',
 
     // Tab content
     'Your inspiration is...' => 'Sinu inspiratsiooniks on...',

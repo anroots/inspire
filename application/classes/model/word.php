@@ -13,6 +13,19 @@ class Model_Word extends Commoneer_ORM
      */
     const DICT_DIR = 'vendor/';
 
+    /**
+     * Get the path to the current (language specific) dict file
+     *
+     * @since 1.2
+     * @static
+     * @return string|bool Path to the current dictionary file or FALSE
+     */
+    public static function dict_file()
+    {
+        $f = APPPATH . Model_Word::DICT_DIR . I18n::lang() . '/dict.txt';
+        return file_exists($f) ? $f : FALSE;
+    }
+
     public function rules()
     {
         return array(
@@ -77,8 +90,8 @@ class Model_Word extends Commoneer_ORM
     {
         // Read the dict file
         // Path example: APPPATH/vendor/ee/dict.txt
-        $dict_file = APPPATH . Model_Word::DICT_DIR . I18n::lang() . '/dict.txt';
-        if (!file_exists($dict_file)) {
+        $dict_file = Model_Word::dict_file();
+        if (!$dict_file) {
             throw new Kohana_Exception("Dictionary file ':dict' does not exist", array(':dict' => $dict_file));
         }
 
@@ -86,7 +99,9 @@ class Model_Word extends Commoneer_ORM
         $f = fopen($dict_file, 'r');
 
         // Determine, which line will be the 'random' line
-        $line_number = rand(1, 104200);
+        $line_number = exec("wc -l $dict_file"); // Use UNIX tools to find the line count in a LARGE file
+        $line_number = explode(' ',$line_number);
+        $line_number = rand(1, $line_number[0]);
 
         // Read line by line. This should be optimized, Immensely.
         // How would one do that, ideas?
@@ -97,10 +112,13 @@ class Model_Word extends Commoneer_ORM
 
             // We are on the 'random' line, return it
             if ($i === $line_number) {
-                return trim($line);
+                break;
             }
             $i++;
         }
+        fclose($f);
+
+        return trim($line);
     }
 
     /**

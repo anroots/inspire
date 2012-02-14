@@ -28,14 +28,19 @@
     </div>
 </div>
 
-<? if (I18n::lang() == 'ee'): ?>
+<? if (Model_Word::dict_file()): ?>
 <div id="options" class="collapse">
     <div class="well">
         <label class="checkbox">
-            <input type="checkbox" value="1" id="use-dictionary"/> <?=__('Use words from the Estonian dictionary')?>
+            <input type="checkbox" value="1" id="use-dictionary"/>
+            <?=__('Use words from the <em>:lang</em> dictionary', array(
+            ':lang' => strtoupper(I18n::lang())
+        ))?>
         </label>
         <span class="help-block">
-            <?=__('Check this if you want random words from the Estonian dictionary')?>
+            <?=__('Check this if you want random words from the :lang dictionary', array(
+            ':lang' => strtoupper(I18n::lang())
+        ))?>
         </span>
     </div>
 </div>
@@ -44,7 +49,7 @@
 <!-- Begin pager-->
 <ul class="pager">
 
-    <? if (I18n::lang() == 'ee'): ?>
+    <? if (Model_Word::dict_file()): ?>
     <li>
         <a href="#" data-toggle="collapse" data-target="#options">
             <?=__('Options')?>
