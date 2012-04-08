@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="intro">Inspire on väike rakendus improviseerijatele inspiratsiooni andmiseks.</string>
+    <string name="app_name">Inspire</string>
+    <string name="standby">Vajuta nupule</string>
+    <string name="get_inspired">Uus inspiratsioon</string>
+    <string name="footer">http://i.jaa.ee</string>
+    <string name="app_description">Ideede genereerija improviseerijatele</string>
+    <string name="alpha">Testversioon</string>
+
+</resources>
