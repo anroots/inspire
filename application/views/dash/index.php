@@ -26,7 +26,7 @@
 			<?=View::factory('dash/about/' . I18n::lang())?>
 			<div class="clearfix"></div>
 			<p><?=__('There\'s also an Android app (min required version 1.6) that\'s still under heavy development.')?></p>
-			<a href="<?=URL::base()?>assets/inspire-1.0.apk" title="<?=__('Download Android App')?>" class="pull-right">
+			<a href="<?=URL::base()?>assets/Inspire-1.0.apk" title="<?=__('Download Android App')?>" class="pull-right">
 				<img src="<?=URL::base()?>assets/img/android_launcher.png" alt="Android"/>
 			</a>
 		</div>
