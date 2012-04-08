@@ -56,5 +56,6 @@ return array(
     'version' => 'versioon',
     'Normal view' => 'Tavavaade',
     'Minimal' => 'Minimaalne',
-    'Minimal view for light clients' => 'Lihtsustatud vaade'
+    'Minimal view for light clients' => 'Lihtsustatud vaade',
+	'Download app' => 'Laadi rakendus'
 );

@@ -30,6 +30,11 @@ class Controller_Word extends Controller_Main
         // Take random word from the dictionary?
         $dict = (bool)$this->request->query('use_dictionary');
 
+	    // Set lang
+	    if ($this->request->query('lang')) {
+		    I18n::lang($this->request->query('lang'));
+	    }
+
         if ($dict) { // Read dictionary file
             $data = $this->_w->from_dict();
         } else { // Ask the database

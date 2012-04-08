@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="intro">Inspire is a small tool for improvisers that to get inspiration from.</string>
+    <string name="intro">Inspire is a small tool for improvisers to get inspiration from.</string>
     <string name="app_name">Inspire</string>
     <string name="standby">Press the button</string>
     <string name="get_inspired">Get Inspired!</string>
-    <string name="footer">http://i.jaa.ee, Improgrupp Jaa!</string>
+    <string name="footer">http://i.jaa.ee</string>
     <string name="app_description">Idea generator app for improvisers</string>
+    <string name="alpha">Alpha version (not done yet!)</string>
 
 </resources>
